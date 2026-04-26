@@ -1,0 +1,12 @@
+from config import get_trading_client
+
+client = get_trading_client()
+
+symbol = "SPY"
+
+try:
+    response = client.close_position("SPY")
+    print(f"Stängde positionen i {symbol}")
+    print(response)
+except Exception as e:
+    print(f"Kunde inte stänga positionen i {symbol}: {e}")
