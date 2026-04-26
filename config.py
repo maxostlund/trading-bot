@@ -1,6 +1,8 @@
 import os
 from alpaca.trading.client import TradingClient
+from dotenv import load_dotenv
 
+load_dotenv()
 
 def get_trading_client():
     api_key = os.getenv("ALPACA_API_KEY")
