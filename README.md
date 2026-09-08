@@ -1,20 +1,19 @@
-Testar att sätta upp en algoritmisk paper trading-bot. Målet är att förlora en massa pengar (och lära mig varför)
+## Spy Paper Trading Bot
+A paper-trading bot for SPY using Alpaca's API. I built this (AI-assisted) to learn how the main parts of a trading systems works. 
 
-#features
-- Hämta senaste 200 1-minuts candlebars för SPY via Alpaca
-- Räknar RSI och Bollingerband
-- Genererar BUY / HOLD / SELL signal
-- Utvärderar via risk_manager ifall en position är tillåten
-- Printar ut graf för hur strategin hanterade senaste 200 en-minutsbars (signaler, candlebars)
+## How it works
+- Fetches 200 one-minute SPY data from Alpaca
+- Uses RSI (Cutler's not Wilder's) and Bollinger Bands to generate BUY/HOLD/SELL signals
+- Runs each trade through a set of risk checks
+- Sizes positions based on risk per trade
+- Submits bracket orders with stop-loss and take-profit
 
-#Strategi just nu
-- Bollinger banden väger för mkt
-- Kanske om man försöker analysera när marknaden rör sig sidleds vs trend, vilket låter omöjligt
-- Strategin är fett bearish (iaf baserat på mitt fantastiska 200minuters stickprov)
+## Risk manager
+Limits position size, total exposure and daily losses, enforces a minimum cash reserve as well as trade cooldowns. Rejects market data older than 60 seconds.
 
-#Nästa
-- logging
-- leka runt
+## Limitations
+The strategy is simple and relies heavily on Bollinger Bands. Mean reversion works best in ranging markets and loses on trending markets. 
 
-#random tankar
-- skäms lite över vibe-coding aspekten, men satan vad kraftfullt det är 
+## Next
+
+I would like to implement a better backtest as well as trade logging. When that is in place I will start experimenting with trading strategies.  

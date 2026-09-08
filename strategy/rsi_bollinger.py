@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-def calculate_rsi(close_prices: pd.Series, period: int = 14) -> pd.Series:
+def calculate_rsi(close_prices: pd.Series, period: int = 14) -> pd.Series: 
     delta = close_prices.diff()
 
     gains = delta.clip(lower=0)
